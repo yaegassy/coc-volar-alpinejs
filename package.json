@@ -8,7 +8,7 @@
   "keywords": [
     "coc.nvim",
     "volar",
-    "alpine",
+    "alpinejs",
     "ts",
     "typescript",
     "vim",
@@ -211,18 +211,13 @@
     },
     "commands": [
       {
+        "command": "volar.alpine.initializeTakeOverMode",
+        "title": "Enable TakeOverMode in your project",
+        "category": "Volar"
+      },
+      {
         "command": "volar.alpine.action.restartServer",
         "title": "Restart Alpine server",
-        "category": "Volar-Alpine"
-      },
-      {
-        "command": "volar.alpine.action.writeVirtualFiles",
-        "title": "Write Virtual Files",
-        "category": "Volar-Alpine (Debug)"
-      },
-      {
-        "command": "volar.alpine.selectTypeScriptVersion",
-        "title": "Select TypeScript Version...",
         "category": "Volar-Alpine"
       },
       {
