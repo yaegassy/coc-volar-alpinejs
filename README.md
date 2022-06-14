@@ -6,7 +6,7 @@
 
 ## Note
 
-For experimental use.
+> For experimental use. Currently not yet optimized for Alpine.js.
 
 ## Thanks
 
