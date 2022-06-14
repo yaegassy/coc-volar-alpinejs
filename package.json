@@ -1,0 +1,240 @@
+{
+  "name": "@yaegassy/coc-volar-alpinejs",
+  "version": "0.0.1",
+  "description": "Alpine.js Language Features (Volar) extension for coc.nvim",
+  "author": "yaegassy <yosstools@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim",
+    "volar",
+    "alpine",
+    "ts",
+    "typescript",
+    "vim",
+    "neovim"
+  ],
+  "engines": {
+    "coc": "^0.0.80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaegassy/coc-volar-alpinejs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint src --ext ts",
+    "clean": "rimraf lib",
+    "watch": "node esbuild.js --watch",
+    "build": "node esbuild.js",
+    "prepare": "node esbuild.js"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": true
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.38",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "coc.nvim": "^0.0.81",
+    "esbuild": "^0.14.42",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2"
+  },
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "contributes": {
+    "jsonValidation": [
+      {
+        "fileMatch": "tsconfig.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "jsconfig.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "tsconfig.*.json",
+        "url": "https://json.schemastore.org/tsconfig"
+      },
+      {
+        "fileMatch": "tsconfig.*.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "jsconfig.*.json",
+        "url": "https://json.schemastore.org/jsconfig"
+      },
+      {
+        "fileMatch": "jsconfig.*.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "tsconfig-*.json",
+        "url": "https://json.schemastore.org/tsconfig"
+      },
+      {
+        "fileMatch": "tsconfig-*.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      },
+      {
+        "fileMatch": "jsconfig-*.json",
+        "url": "https://json.schemastore.org/jsconfig"
+      },
+      {
+        "fileMatch": "jsconfig-*.json",
+        "url": "./schemas/vue-tsconfig.schema.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "coc-volar-alpinejs configuration",
+      "properties": {
+        "volar.alpine.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-volar-alpinejs extension."
+        },
+        "volar.alpine.useWorkspaceTsdk": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use workspace (project) detected tsLibs in volar. if false, use coc-volar-alpinejs's built-in tsLibs."
+        },
+        "volar.alpine.diagnostics.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the Volar diagnostics."
+        },
+        "volar.alpine.diagnostics.tsLocale": {
+          "type": "string",
+          "enum": [
+            "cs",
+            "de",
+            "es",
+            "fr",
+            "it",
+            "ja",
+            "ko",
+            "en",
+            "pl",
+            "pt-br",
+            "ru",
+            "tr",
+            "zh-cn",
+            "zh-tw"
+          ],
+          "default": "en",
+          "description": "Locale of diagnostics messages from typescript."
+        },
+        "volar.alpine.formatting.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the Volar document formatter."
+        },
+        "volar.alpine.progressOnInitialization.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable progress window at language server startup."
+        },
+        "volar-alpine-language-features.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        },
+        "volar-alpine-language-features-2.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        },
+        "volar-alpine-document-features.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        },
+        "volar.alpineserver.useSecondServer": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use second server to progress heavy diagnostic works, the main server workhorse computing intellisense, operations such as auto-complete can respond faster. Note that this will lead to more memory usage."
+        },
+        "volar.alpineserver.maxOldSpaceSize": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "default": null,
+          "description": "Set --max-old-space-size option on server process. If you have problem on frequently \"Request textDocument/** failed.\" error, try setting higher memory(MB) on it."
+        },
+        "volar.alpine.takeOverMode.enabled": {
+          "type": "boolean",
+          "enum": [
+            true,
+            false
+          ],
+          "enumDescriptions": [
+            "Alway enable take over mode.",
+            "Never enable take over mode."
+          ],
+          "default": false,
+          "description": "Take over language support for *.ts."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "volar.alpine.action.restartServer",
+        "title": "Restart Alpine server",
+        "category": "Volar-Alpine"
+      },
+      {
+        "command": "volar.alpine.action.writeVirtualFiles",
+        "title": "Write Virtual Files",
+        "category": "Volar-Alpine (Debug)"
+      },
+      {
+        "command": "volar.alpine.selectTypeScriptVersion",
+        "title": "Select TypeScript Version...",
+        "category": "Volar-Alpine"
+      },
+      {
+        "command": "volar.alpine.findAllFileReferences",
+        "title": "Alpine: Find File References",
+        "category": "Volar-Alpine"
+      }
+    ]
+  },
+  "dependencies": {
+    "@volar/alpine-language-server": "0.37.8",
+    "@volar/shared": "0.37.8",
+    "typescript": "4.7.3"
+  }
+}
