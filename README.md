@@ -24,7 +24,7 @@
 }
 ```
 
-1. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
+2. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
 
 ## Thanks
 
