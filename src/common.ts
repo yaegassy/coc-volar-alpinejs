@@ -5,6 +5,7 @@ import * as documentVersion from './features/documentVersion';
 import * as fileReferences from './features/fileReferences';
 import * as showReferences from './features/showReferences';
 import * as tsVersion from './features/tsVersion';
+import * as statusBar from './client/statusBar';
 
 let apiClient: LanguageClient;
 let docClient: LanguageClient | undefined;
@@ -143,6 +144,8 @@ export async function doActivate(context: ExtensionContext, createLc: CreateLang
   registerClientRequests();
 
   fileReferences.register('volar.alpine.findAllFileReferences', apiClient);
+  /** Custom status-bar for coc-volar-alpinejs */
+  statusBar.register(context, docClient ?? apiClient);
 
   async function registerRestartRequest() {
     await Promise.all(clients.map((client) => client.onReady()));
