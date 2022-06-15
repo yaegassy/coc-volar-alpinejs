@@ -10,7 +10,7 @@
 
 ## Usage
 
-#. Create `jsconfig.json` or `tsconfig.json` to your Alpine project, and than adding below content.
+1. Create `jsconfig.json` or `tsconfig.json` to your Alpine project, and than adding below content.
 
 ```jsonc
 {
@@ -24,7 +24,7 @@
 }
 ```
 
-#. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
+1. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
 
 ## Thanks
 
