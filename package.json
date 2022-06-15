@@ -62,7 +62,7 @@
       "properties": {
         "volar.alpine.enable": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Enable coc-volar-alpinejs extension."
         },
         "volar.alpine.useWorkspaceTsdk": {
