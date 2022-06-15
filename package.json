@@ -206,6 +206,11 @@
           ],
           "default": false,
           "description": "Take over language support for *.ts."
+        },
+        "volar.alpine.dev.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "(For develop and check) Custom path to alpine-language-server module, `~` and `$HOME`, etc. can also be used. If there is no setting, the built-in module will be used."
         }
       }
     },

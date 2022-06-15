@@ -8,6 +8,7 @@ import {
   workspace,
 } from 'coc.nvim';
 import * as path from 'path';
+import * as fs from 'fs';
 import { activate as commonActivate, deactivate as commonDeactivate } from './common';
 
 let serverModule: string;
@@ -16,9 +17,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (!getConfigVolarAlpineEnable()) return;
 
   return commonActivate(context, (id, name, documentSelector, initOptions, port) => {
-    serverModule = context.asAbsolutePath(
-      path.join('node_modules', '@volar', 'alpine-language-server', 'bin', 'alpine-language-server.js')
-    );
+    const devVolarAlpineServerPath = workspace.expand(getConfigDevServerPath());
+    if (devVolarAlpineServerPath && fs.existsSync(devVolarAlpineServerPath)) {
+      serverModule = devVolarAlpineServerPath;
+    } else {
+      serverModule = context.asAbsolutePath(
+        path.join('node_modules', '@volar', 'alpine-language-server', 'bin', 'alpine-language-server.js')
+      );
+    }
 
     const debugOptions = { execArgv: ['--nolazy', '--inspect=' + port] };
     const serverOptions: ServerOptions = {
@@ -71,4 +77,8 @@ function getConfigProgressOnInitialization() {
 
 function getConfigServerMaxOldSpaceSize() {
   return workspace.getConfiguration('volar').get<number | null>('alpineserver.maxOldSpaceSize');
+}
+
+function getConfigDevServerPath() {
+  return workspace.getConfiguration('volar').get<string>('alpine.dev.serverPath', '');
 }
