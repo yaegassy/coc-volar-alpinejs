@@ -10,7 +10,21 @@
 
 ## Usage
 
-1. Create `jsconfig.json` or `tsconfig.json` to your Alpine project, and than adding below content.
+[WARNING] This extension will not work with the default settings. 
+
+1. To use it, add the `"volar.alpine.enable: true"` setting to your project's `.vim/coc-settings.json`. Project-level `coc-settings.json` can be quickly created by running the `:CocLocalConfig` command.
+
+**.vim/coc-settings.json**:
+
+```jsonc
+{
+  "volar.alpine.enable": true,
+}
+```
+
+2. Create `jsconfig.json` or `tsconfig.json` to your Alpine project, and than adding below content.
+
+**jsconfig.json/tsconfig.json**:
 
 ```jsonc
 {
@@ -24,7 +38,7 @@
 }
 ```
 
-2. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
+3. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
 
 ## Thanks
 
