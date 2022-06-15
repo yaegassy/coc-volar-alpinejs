@@ -6,7 +6,25 @@
 
 ## Note
 
-> For experimental use. Currently not yet optimized for Alpine.js.
+`@volar/alpine-language-server` is a Language Server separated out of `@volar/vue-language-server`  and currently not yet optimized for Alpine.js. (e.g. `x-` directive completion, etc. will not work)
+
+## Usage
+
+#. Create `jsconfig.json` or `tsconfig.json` to your Alpine project, and than adding below content.
+
+```jsonc
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"jsx": "preserve"
+	},
+	"include": [
+		"PATH_TO_THE_HTML_FILES/**/*.html"
+	]
+}
+```
+
+#. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
 
 ## Thanks
 
