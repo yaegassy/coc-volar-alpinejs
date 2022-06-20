@@ -12,13 +12,14 @@
 
 [WARNING] This extension will not work with the default settings. 
 
-1. To use it, add the `"volar.alpine.enable: true"` setting to your project's `.vim/coc-settings.json`. Project-level `coc-settings.json` can be quickly created by running the `:CocLocalConfig` command.
+1. To use it, add the `"volar.alpine.enable: true"` setting to your project's `.vim/coc-settings.json`. Project-level `coc-settings.json` can be quickly created by running the `:CocLocalConfig` command. Also, if `coc-html` is installed, add `"html.enable": false`.
 
 **.vim/coc-settings.json**:
 
 ```jsonc
 {
   "volar.alpine.enable": true,
+  "html.enable": false
 }
 ```
 
@@ -39,6 +40,13 @@
 ```
 
 3. (Optional) Install `@vue/runtime-dom` to devDependencies for support html element typs.
+
+## "x-" directive completion
+
+Install [coc-html-css-support](https://github.com/yaegassy/coc-html-css-support) and run the `html-css-support.customDataSetup` command. `@volar/alpine-language-server` respects the settings in `html.customData`.
+
+- See
+  - <https://github.com/yaegassy/coc-html-css-support/pull/3>
 
 ## Thanks
 
